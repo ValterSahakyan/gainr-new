@@ -1,10 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { SECTION_INNER_PADDING } from "@/screens/Home/layout";
 
-const partnerGroups = [
-    "Gainr Analytics team of quants, traders and data scientists",
-    "University of Glasgow",
-];
+const partnerGroups = ["Gainr Analytics team of quants, traders and data scientists"];
 
 const partnerLogos = [
     { id: "layer2", src: "/images/Layer%202.png", alt: "Layer 2" },
@@ -43,6 +40,16 @@ export const PartnersSection = (): JSX.Element => {
                             </CardContent>
                         </Card>
                     ))}
+
+                    <Card className="h-full rounded-[20px] border border-[#d7d8de] bg-[#f6f6f8] shadow-none">
+                        <CardContent className="flex h-full min-h-[98px] items-center justify-center p-5">
+                            <img
+                                src="/images/GlasgowUniLogo.gif"
+                                alt="University of Glasgow"
+                                className="block h-16 w-auto object-contain object-center md:h-20"
+                            />
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </section>
