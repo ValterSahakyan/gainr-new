@@ -4,10 +4,13 @@ import { MessageCircle, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const footerLinks = {
-    protocol: ["Litepaper", "Tokenomics"],
+    protocol: ["Pitch Deck", "Tokenomics"],
     products: ["Back.Bet", "Pick.Bet", "XOX.Bet"],
     community: ["Discord", "Twitter", "Telegram"],
     resources: ["Documentation", "GitHub", "Explorer", "Support"],
+};
+const externalLinks: Record<string, string> = {
+    "Pitch Deck": "https://gainr.docsend.com/view/493w6em4cgb453db",
 };
 
 const legalLinks = ["Privacy policy", "Terms of service", "Testnet beta"];
@@ -48,6 +51,15 @@ export const FooterSection = ({ backgroundClassName = "bg-white" }: FooterSectio
                                                     <Link to={productRoutes[link]} className="text-sm text-[#6b7280] transition-colors hover:text-brand">
                                                         {link}
                                                     </Link>
+                                                ) : externalLinks[link] ? (
+                                                    <a
+                                                        href={externalLinks[link]}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-sm text-[#6b7280] transition-colors hover:text-brand"
+                                                    >
+                                                        {link}
+                                                    </a>
                                                 ) : (
                                                     <a href="#" className="text-sm text-[#6b7280] transition-colors hover:text-brand">
                                                         {link}

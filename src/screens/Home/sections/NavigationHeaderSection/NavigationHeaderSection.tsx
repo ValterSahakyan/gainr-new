@@ -16,6 +16,7 @@ const navigationItems = [
     { label: "buy GAINR", href: "/buy-gainr", type: "route" as const },
     { label: "docs", href: "#docs", type: "anchor" as const },
 ];
+const PITCH_DECK_URL = "https://gainr.docsend.com/view/493w6em4cgb453db";
 
 export const NavigationHeaderSection = (): JSX.Element => {
     const { pathname } = useLocation();
@@ -58,7 +59,9 @@ export const NavigationHeaderSection = (): JSX.Element => {
                         asChild
                         className="h-auto rounded-full bg-brand px-7 py-2 text-sm font-medium text-brand-foreground hover:bg-brand-hover"
                     >
-                        <a href="#litepaper">litepaper</a>
+                        <a href={PITCH_DECK_URL} target="_blank" rel="noopener noreferrer">
+                            Pitch Deck
+                        </a>
                     </Button>
                 </div>
                 <button
@@ -99,7 +102,9 @@ export const NavigationHeaderSection = (): JSX.Element => {
                         asChild
                         className="mt-5 h-auto w-full rounded-full bg-brand px-6 py-2.5 text-sm font-medium text-brand-foreground hover:bg-brand-hover"
                     >
-                        <a href="#litepaper">litepaper</a>
+                        <a href={PITCH_DECK_URL} target="_blank" rel="noopener noreferrer">
+                            Pitch Deck
+                        </a>
                     </Button>
                 </div>
             ) : null}

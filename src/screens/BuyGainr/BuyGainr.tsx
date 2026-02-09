@@ -3,6 +3,8 @@ import { NavigationHeaderSection } from "@/screens/Home/sections/NavigationHeade
 import { FooterSection } from "@/screens/Home/sections/FooterSection";
 import { SECTION_INNER_PADDING } from "@/screens/Home/layout";
 
+const PITCH_DECK_URL = "https://gainr.docsend.com/view/493w6em4cgb453db";
+
 export const BuyGainr = (): JSX.Element => {
     return (
         <div className="min-h-screen w-full overflow-x-hidden bg-[#efeff1] font-['Figtree'] text-[#161515]">
@@ -58,8 +60,10 @@ export const BuyGainr = (): JSX.Element => {
                             <Button className="h-auto rounded-full bg-brand px-6 py-2.5 text-sm font-medium text-white hover:bg-brand-hover">
                                 Notify me
                             </Button>
-                            <Button className="h-auto rounded-full bg-[#d9dce3] px-6 py-2.5 text-sm text-[#2e3440] hover:bg-[#d0d4dc]">
-                                Read litepaper
+                            <Button asChild className="h-auto rounded-full bg-[#d9dce3] px-6 py-2.5 text-sm text-[#2e3440] hover:bg-[#d0d4dc]">
+                                <a href={PITCH_DECK_URL} target="_blank" rel="noopener noreferrer">
+                                    Pitch Deck
+                                </a>
                             </Button>
                         </div>
                     </div>
