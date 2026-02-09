@@ -67,14 +67,14 @@ export const Token = (): JSX.Element => {
         <div className="min-h-screen w-full overflow-x-hidden bg-[#efeff1] font-['Figtree'] text-[#161515]">
             <NavigationHeaderSection />
 
-            <main className="flex w-full flex-col gap-8 px-[20px] pb-8 pt-[96px] md:gap-10 md:pb-12 md:pt-[96px]">
+            <main className="flex w-full flex-col gap-8 px-3 pb-8 pt-[96px] md:gap-10 md:px-[20px] md:pb-12 md:pt-[96px]">
                 <section id="token-home" className="relative">
                     <div
                         className="relative h-[calc(100svh-96px)] overflow-hidden rounded-[50px] bg-cover bg-center"
                         style={{ backgroundImage: `url('${tokenHero.image}')` }}
                     >
                         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.35)_45%,rgba(0,0,0,0.25)_100%)]" />
-                        <div className="relative flex h-full w-full items-center px-6 py-14 md:px-12 lg:px-20">
+                        <div className="relative flex h-full w-full items-center px-4 py-14 md:px-12 lg:px-20">
                             <div className="max-w-[650px]">
                                 <h1 className="text-[32px] font-medium leading-[1.08] tracking-[-0.02em] text-black md:text-[58px]">
                                     <span>{tokenHero.titleMain}</span>
@@ -98,13 +98,20 @@ export const Token = (): JSX.Element => {
                         </p>
 
                         <Card className="mt-8 rounded-[20px] bg-[#EFEFF1] shadow-none">
-                            <CardContent className="flex flex-col gap-6 px-6 py-8 md:flex-row md:items-center md:gap-8 md:px-10 md:py-12">
-                                <div className="flex h-[132px] w-[132px] shrink-0 items-center justify-center rounded-[24px] bg-[#e5e6e9]">
+                            <CardContent className="flex flex-col gap-5 px-4 py-6 md:flex-row md:items-center md:gap-8 md:px-10 md:py-12">
+                                <div className="hidden h-[132px] w-[132px] shrink-0 items-center justify-center rounded-[24px] bg-[#e5e6e9] md:flex">
                                     <ShieldCheck className="h-16 w-16 text-[#616672]" strokeWidth={1.75} />
                                 </div>
                                 <div>
-                                    <h3 className="text-[24px] font-semibold leading-none tracking-[-0.02em] text-[#353840] md:text-[46px]">Community-First Approach</h3>
-                                    <p className="mt-4 max-w-[980px] text-[17px] leading-[1.35] text-[#59606d] md:text-[36px]">
+                                    <div className="flex items-center gap-2 md:block">
+                                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#e5e6e9] md:hidden">
+                                            <ShieldCheck className="h-4 w-4 text-[#616672]" strokeWidth={1.9} />
+                                        </div>
+                                        <h3 className="text-[21px] font-semibold leading-[1.1] tracking-[-0.02em] text-[#353840] md:text-[46px]">
+                                            Community-First Approach
+                                        </h3>
+                                    </div>
+                                    <p className="mt-3 max-w-[980px] text-[15px] leading-[1.35] text-[#59606d] md:mt-4 md:text-[36px]">
                                         <span className="text-brand">60%</span> of tokens allocated to community liquidity and ecosystem development,
                                         ensuring decentralized governance and sustainable growth.
                                     </p>
@@ -113,7 +120,7 @@ export const Token = (): JSX.Element => {
                         </Card>
 
                         <div className="mt-10">
-                            <div className="mx-auto max-w-[1240px] rounded-[34px] px-6 py-9 md:px-10 md:py-12">
+                            <div className="mx-auto max-w-[1240px] rounded-[34px] px-4 py-9 md:px-10 md:py-12">
                                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-[430px_1fr] lg:items-center lg:gap-14">
                                     <div className="mx-auto h-[280px] w-[280px] overflow-hidden rounded-full bg-[#cfd1d7] sm:h-[320px] sm:w-[320px] md:h-[430px] md:w-[430px]">
                                         <video
@@ -130,7 +137,7 @@ export const Token = (): JSX.Element => {
                                         {tokenDistributionPills.map((pill) => (
                                             <div
                                                 key={pill.label}
-                                                className={`w-full lg:max-w-[560px] rounded-[24px] bg-[linear-gradient(180deg,#f5f6f8_0%,#e7e9ee_100%)] px-6 py-4 text-center text-[22px] leading-none transition-transform duration-300 ease-out hover:-translate-y-1 md:px-9 md:py-6 md:text-[30px] lg:text-left lg:text-[36px] ${pill.offsetClass}`}
+                                                className={`w-full lg:max-w-[560px] rounded-[24px] bg-[linear-gradient(180deg,#f5f6f8_0%,#e7e9ee_100%)] px-4 py-4 text-center text-[22px] leading-none transition-transform duration-300 ease-out hover:-translate-y-1 md:px-9 md:py-6 md:text-[30px] lg:text-left lg:text-[36px] ${pill.offsetClass}`}
                                             >
                                                 <span className="inline-flex items-center gap-3 whitespace-normal md:whitespace-nowrap">
                                                     <span className="font-semibold tracking-[-0.02em] text-brand">{pill.value}</span>
@@ -157,7 +164,7 @@ export const Token = (): JSX.Element => {
                                         className="group h-[420px] w-full overflow-hidden rounded-[30px] bg-white md:h-[500px]"
                                     >
                                         <CardContent className="flex h-full flex-col p-0">
-                                            <div className="px-6 pt-6 md:px-8 md:pt-8">
+                                            <div className="px-4 pt-6 md:px-8 md:pt-8">
                                                 <h3 className="text-[20px] font-medium leading-[1.15] tracking-[-0.02em] text-[#262228] md:text-[22px]">{item.title}</h3>
                                                 <p className="mt-4 text-[16px] leading-[1.35] text-[#646a77] md:text-[17px]">{item.description}</p>
                                             </div>

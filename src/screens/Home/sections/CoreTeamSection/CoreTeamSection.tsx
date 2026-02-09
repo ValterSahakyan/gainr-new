@@ -84,7 +84,7 @@ export const CoreTeamSection = (): JSX.Element => {
             <div>
                 <div
                     ref={trackRef}
-                    className="relative z-30 mt-3 cursor-grab overflow-x-auto overflow-y-visible pb-2 select-none touch-pan-y [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                    className="relative z-30 mt-3 cursor-grab overflow-x-auto overflow-y-visible pb-2 select-none touch-pan-x [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                     {...handlers}
                 >
                     <div className={`relative z-30 flex w-max snap-x snap-mandatory items-start gap-4 ${SECTION_INNER_PADDING}`}>

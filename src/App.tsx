@@ -4,6 +4,7 @@ import { Home } from "./screens/Home/Home";
 import { Token } from "./screens/Token";
 import { Ecosystem } from "./screens/Ecosystem";
 import { BuyGainr } from "./screens/BuyGainr";
+import { ComingSoon } from "./screens/ComingSoon";
 
 const ScrollToTop = (): null => {
     const { pathname } = useLocation();
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: "buy-gainr",
                 element: <BuyGainr />,
+            },
+            {
+                path: "coming-soon",
+                element: <ComingSoon />,
             },
         ],
     },

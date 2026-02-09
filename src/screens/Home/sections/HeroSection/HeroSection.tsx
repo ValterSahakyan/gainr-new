@@ -11,7 +11,7 @@ export const HeroSection = (): JSX.Element => {
                     className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.4)_50%,rgba(0,0,0,0.1)_100%)]" />
-                <div className="relative flex h-full w-full items-center px-6 py-14 md:px-12 lg:px-20">
+                <div className="relative flex h-full w-full items-center px-4 py-14 md:px-12 lg:px-20">
                     <div className="max-w-[800px]">
                         <h1 className="text-[32px] font-bold leading-[1.1] tracking-tight text-[#FF5A00] drop-shadow-lg md:text-[64px]">
                             Institutional Infrastructure for Sports-Betting-As-An-Asset-Class

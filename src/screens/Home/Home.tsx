@@ -10,7 +10,7 @@ export const Home = (): JSX.Element => {
     return (
         <div className="min-h-screen w-full overflow-x-hidden bg-[#efeff1] font-['Figtree'] text-[#161515]">
             <NavigationHeaderSection />
-            <main className="flex w-full flex-col gap-12 px-[20px] pb-8 pt-[96px] md:pb-12 md:pt-[96px]">
+            <main className="flex w-full flex-col gap-12 px-3 pb-8 pt-[96px] md:px-[20px] md:pb-12 md:pt-[96px]">
                 <HeroSection />
                 <FeatureSection />
                 <CoreTeamSection />

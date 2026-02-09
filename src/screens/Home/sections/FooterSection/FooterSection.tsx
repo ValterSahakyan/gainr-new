@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { MessageCircle, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const footerLinks = {
     protocol: ["Litepaper", "Tokenomics"],
@@ -10,6 +11,11 @@ const footerLinks = {
 };
 
 const legalLinks = ["Privacy policy", "Terms of service", "Testnet beta"];
+const productRoutes: Record<string, string> = {
+    "Back.Bet": "/coming-soon",
+    "Pick.Bet": "/coming-soon",
+    "XOX.Bet": "/coming-soon",
+};
 
 type FooterSectionProps = {
     backgroundClassName?: string;
@@ -17,8 +23,8 @@ type FooterSectionProps = {
 
 export const FooterSection = ({ backgroundClassName = "bg-white" }: FooterSectionProps): JSX.Element => {
     return (
-        <footer className={`mt-6 w-full px-[20px] pb-10 pt-8 md:pt-10 ${backgroundClassName}`}>
-            <div className="w-full px-4 md:px-12 lg:px-20">
+        <footer className={`mt-6 w-full px-3 pb-10 pt-8 md:px-[20px] md:pt-10 ${backgroundClassName}`}>
+            <div className="w-full px-0 md:px-12 lg:px-20">
                 <Separator className="bg-[#e5e7eb]" />
 
                 <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[250px_1fr]">
@@ -38,9 +44,15 @@ export const FooterSection = ({ backgroundClassName = "bg-white" }: FooterSectio
                                     <ul className="space-y-2">
                                         {links.map((link) => (
                                             <li key={link}>
-                                                <a href="#" className="text-sm text-[#6b7280] transition-colors hover:text-brand">
-                                                    {link}
-                                                </a>
+                                                {productRoutes[link] ? (
+                                                    <Link to={productRoutes[link]} className="text-sm text-[#6b7280] transition-colors hover:text-brand">
+                                                        {link}
+                                                    </Link>
+                                                ) : (
+                                                    <a href="#" className="text-sm text-[#6b7280] transition-colors hover:text-brand">
+                                                        {link}
+                                                    </a>
+                                                )}
                                             </li>
                                         ))}
                                     </ul>

@@ -28,7 +28,7 @@ export const AdvisorsSection = (): JSX.Element => {
     const { ref: trackRef, handlers } = useDragScroll<HTMLDivElement>();
 
     return (
-        <section className="w-full rounded-[28px] bg-[#dfe0e4] py-8 md:py-10">
+        <section className="relative z-20 w-full rounded-[28px] bg-[#dfe0e4] py-8 md:py-10">
             <div className={SECTION_INNER_PADDING}>
                 <h2 className="text-[36px] font-medium leading-none tracking-[-0.02em] text-brand md:text-[56px]">Strategic advisors</h2>
 
@@ -37,17 +37,19 @@ export const AdvisorsSection = (): JSX.Element => {
                         <ChevronsLeftRight className="h-4 w-4 text-brand [animation:swipe-hint_1.4s_ease-in-out_infinite]" />
                     </div>
                 </div>
+            </div>
 
+            <div>
                 <div
                     ref={trackRef}
-                    className="relative z-10 mt-3 cursor-grab overflow-x-auto pb-2 select-none touch-pan-y [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                    className="relative z-30 mt-3 cursor-grab overflow-x-auto overflow-y-visible pb-2 select-none touch-pan-x [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                     {...handlers}
                 >
-                    <div className="flex w-max snap-x snap-mandatory items-start gap-4 pr-6 md:pr-12 lg:pr-20">
+                    <div className={`relative z-30 flex w-max snap-x snap-mandatory items-start gap-4 ${SECTION_INNER_PADDING}`}>
                         {advisors.map((advisor) => (
                             <Card
                                 key={advisor.name}
-                                className="group w-[360px] shrink-0 snap-start cursor-pointer overflow-hidden rounded-[20px] border border-[#d7d8de] bg-[#f6f6f8] shadow-none transition-all duration-300 ease-out"
+                                className="relative z-40 group w-[360px] shrink-0 snap-start cursor-pointer overflow-hidden rounded-[20px] border border-[#d7d8de] bg-[#f6f6f8] shadow-none transition-all duration-300 ease-out"
                             >
                                 <CardContent className="p-5 pb-4">
                                     <h3 className="text-[14px] font-medium text-[#1f2025]">{advisor.name}</h3>

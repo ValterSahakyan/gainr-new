@@ -5,6 +5,7 @@ import { FooterSection } from "@/screens/Home/sections/FooterSection";
 import { SECTION_INNER_PADDING } from "@/screens/Home/layout";
 import { Orbit, ShieldCheck, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 type ProductItem = {
     name: string;
@@ -13,7 +14,7 @@ type ProductItem = {
     benefits: string[];
     features: string[];
     launchText: string;
-    launchUrl?: string;
+    launchPath: string;
     accent: "orange" | "slate";
     image: string;
     imageClass: string;
@@ -27,7 +28,7 @@ const products: ProductItem[] = [
         benefits: ["Provably fair algorithms", "Transparent odds", "Instant payouts", "Low fees with GAINR rebates"],
         features: ["Sports betting", "Casino games", "Live events", "Mobile optimized"],
         launchText: "Launch app",
-        launchUrl: "https://gainr-demo-feprswkb.manus.space/",
+        launchPath: "/coming-soon",
         accent: "orange",
         image: "/images/frame11.png",
         imageClass: "brightness-[1.07] contrast-[1.08] saturate-[1.08] sepia-[0.35] hue-rotate-[-16deg]",
@@ -38,7 +39,8 @@ const products: ProductItem[] = [
         description: "Decentralized tipping system for content creators and streamers",
         benefits: ["Direct creator support", "Transparent transactions", "Cross-platform compatibility", "Community rewards"],
         features: ["Twitch integration", "YouTube support", "Social media tips", "Creator dashboard"],
-        launchText: "Coming soon",
+        launchText: "Launch app",
+        launchPath: "/coming-soon",
         accent: "slate",
         image: "/images/frame12.png",
         imageClass: "brightness-[1.07] contrast-[1.08] saturate-[1.08]",
@@ -49,7 +51,8 @@ const products: ProductItem[] = [
         description: "Gaming platform with skill-based competitions and tournaments",
         benefits: ["Skill-based competitions", "Fair matchmaking", "Tournament prizes", "Community tournaments"],
         features: ["Multi-game support", "Leaderboard", "Custom tournaments", "Streaming integration"],
-        launchText: "Coming soon",
+        launchText: "Launch app",
+        launchPath: "/coming-soon",
         accent: "slate",
         image: "/images/frame13.png",
         imageClass: "brightness-[1.07] contrast-[1.08] saturate-[1.08]",
@@ -131,14 +134,14 @@ export const Ecosystem = (): JSX.Element => {
         <div className="min-h-screen w-full overflow-x-hidden bg-white font-['Figtree'] text-[#161515]">
             <NavigationHeaderSection />
 
-            <main className="flex w-full flex-col gap-8 px-[20px] pb-8 pt-[96px] md:gap-10 md:pb-12 md:pt-[96px]">
+            <main className="flex w-full flex-col gap-8 px-3 pb-8 pt-[96px] md:gap-10 md:px-[20px] md:pb-12 md:pt-[96px]">
                 <section id="ecosystem-home" className="relative">
                     <div
                         className="relative h-[calc(100svh-96px)] overflow-hidden rounded-[50px] bg-cover bg-center"
                         style={{ backgroundImage: "url('/images/frame3.png')" }}
                     >
                         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(239,239,241,0.55)_0%,rgba(239,239,241,0.28)_45%,rgba(239,239,241,0.12)_100%)]" />
-                        <div className="relative flex h-full w-full items-center px-6 py-14 md:px-12 lg:px-20">
+                        <div className="relative flex h-full w-full items-center px-4 py-14 md:px-12 lg:px-20">
                             <div className="max-w-[650px]">
                                 <h1 className="text-[34px] font-medium leading-[1.02] tracking-[-0.02em] text-black md:text-[62px]">
                                 Complete
@@ -179,8 +182,8 @@ export const Ecosystem = (): JSX.Element => {
                                 <Card
                                     className={`rounded-[24px] shadow-none ring-1 transition-all duration-300 ${isActive ? "bg-white ring-[#dde0e7]" : "bg-[#f4f6fa] ring-[#dde0e7]"}`}
                                 >
-                                    <CardContent className="relative grid gap-4 p-3 md:grid-cols-[1.28fr_1fr] md:items-center md:gap-6 md:p-5">
-                                        <div className={`rounded-[18px] p-4 transition-colors duration-300 md:p-5 ${isActive ? "bg-white" : "bg-transparent"}`}>
+                                    <CardContent className="relative grid gap-4 p-2 md:grid-cols-[1.28fr_1fr] md:items-center md:gap-6 md:p-5">
+                                        <div className={`rounded-[18px] p-3 transition-colors duration-300 md:p-5 ${isActive ? "bg-white" : "bg-transparent"}`}>
                                             <div className="flex items-center gap-3">
                                                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#e4e7ee]">
                                                     {iconForProduct(product.name, isActive)}
@@ -229,20 +232,14 @@ export const Ecosystem = (): JSX.Element => {
                                             </div>
 
                                             <div className="mt-4 flex gap-3">
-                                                {product.launchUrl ? (
-                                                    <Button
-                                                        asChild
-                                                        className={`h-auto rounded-full px-5 py-2 text-xs font-medium ${isActive ? "bg-brand text-white hover:bg-brand-hover" : "bg-[#5f636c] text-white hover:bg-[#4f535b]"}`}
-                                                    >
-                                                        <a href={product.launchUrl} target="_blank" rel="noreferrer">
-                                                            {product.launchText}
-                                                        </a>
-                                                    </Button>
-                                                ) : (
-                                                    <Button className={`h-auto rounded-full px-5 py-2 text-xs font-medium ${isActive ? "bg-brand text-white hover:bg-brand-hover" : "bg-[#5f636c] text-white hover:bg-[#4f535b]"}`}>
+                                                <Button
+                                                    asChild
+                                                    className={`h-auto rounded-full px-5 py-2 text-xs font-medium ${isActive ? "bg-brand text-white hover:bg-brand-hover" : "bg-[#5f636c] text-white hover:bg-[#4f535b]"}`}
+                                                >
+                                                    <Link to={product.launchPath}>
                                                         {product.launchText}
-                                                    </Button>
-                                                )}
+                                                    </Link>
+                                                </Button>
                                                 <Button className="h-auto rounded-full bg-[#d9dce3] px-5 py-2 text-xs text-[#434955] hover:bg-[#d2d6de]">
                                                     Learn more
                                                 </Button>
